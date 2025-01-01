@@ -1,0 +1,43 @@
+.nk {
+	height: 50px;
+	width: auto;
+}
+
+.p-col{
+	display: flex;
+}
+
+.c-col{
+        flex: 1;
+}
+
+.nkfont {
+	font-family: "Georgia",serif; 
+}
+
+.socials {
+	height: 30px;
+	width: auto;
+	padding: 2px;
+}
+
+.min {
+	background-color: #2E2E2E;
+}
+
+.ebox {
+	background-color: white;
+	border: 1px solid black;
+}
+
+.null {
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
