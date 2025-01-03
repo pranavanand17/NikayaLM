@@ -6,8 +6,72 @@
         {% load static %}
         <link rel="icon" type="image" sizes="512x512"href="{% static 'images/NikayaWhite.png' %}">
         <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
-        <title>Register</title>
+        <title>Nikaya</title>
 </head>
+<style>
+	.carousel {
+  width: 90vw; /* Occupy 90% of the viewport width */
+  height: 50vh; /* Occupy 50% of the viewport height */
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  position: relative;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  width: 90vw; /* Match the carousel width */
+  height: 50vh; /* Match the carousel height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 70%; /* Occupy 70% of the carousel height */
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.carousel-quote {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  color: #555;
+  font-style: italic;
+  padding: 0 10px; /* Add padding for better text alignment */
+}
+
+.carousel-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.carousel-buttons button {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+
+.carousel-buttons button:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+</style>
 <header style="background-color: black; color: white; padding: 20px;" >
         <hr>
         <div style="align-items: center; display: flex;">
@@ -20,7 +84,21 @@
         <hr>
 </header>
 <body class="min">
-
+	<br>
+	<br>
+	<center><div class="carousel">
+    <div class="carousel-inner">
+      <img src="{% static 'images/CheckOut.png' %}" alt="Slide 1">
+      <img src="{% static 'images/C2.png' %}" alt="Slide 2">
+      <img src="{% static 'images/Thinking.png' %}" alt="Slide 2">
+    </div>
+    <div class="carousel-buttons">
+      <button id="prev">‹</button>
+      <button id="next">›</button>
+    </div>
+		</div></center>
+	<br>
+	<br>
 </body>
 
 <br>
@@ -39,4 +117,26 @@
         <hr>
 	<center><img loading="lazy" style="height: 300px; width: auto;" src="{% static 'images/NikayaWithTextInverted.jpg' %}" alt="Nikaya Logo"><center>
 </footer>
+<script>
+    const carouselInner = document.querySelector('.carousel-inner');
+    const images = document.querySelectorAll('.carousel-inner img');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+
+    let index = 0;
+
+    const updateCarousel = () => {
+      carouselInner.style.transform = `translateX(-${index * 300}px)`;
+    };
+
+    nextButton.addEventListener('click', () => {
+      index = (index + 1) % images.length;
+      updateCarousel();
+    });
+
+    prevButton.addEventListener('click', () => {
+      index = (index - 1 + images.length) % images.length;
+      updateCarousel();
+    });
+  </script>
 </html>

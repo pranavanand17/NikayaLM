@@ -10,7 +10,7 @@ def register(request):
 
     else:
         form= CustomUserCreationForm()
-    return render(request,'/home/pranavanand/Nikaya/app/templates/register.html',{'form':form})
+    return render(request,'/home/pranavanand/NikayaLM/Nikaya/app/templates/register.html',{'form':form})
 
 def homepage(request):
-    return render(request,'/home/pranavanand/Nikaya/app/templates/homepage.html')
+    return render(request,'/home/pranavanand/NikayaLM/Nikaya/app/templates/homepage.html')
