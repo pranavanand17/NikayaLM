@@ -1,4 +1,17 @@
+.info {
+        display: inline-block;
+        border: 4px double black;
+        padding: 10px 0;
+        text-align: center;
+        color: black;
+}
 
+.black-box {
+	background-color: black;
+	border: 2px solid white;
+	color: white;
+	text-align: center;
+}
 .nk {
 	height: 50px;
 	width: auto;

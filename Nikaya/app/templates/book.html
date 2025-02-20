@@ -1,0 +1,57 @@
+<!DOCTYPE html>`:
+<html lang="en">
+<head>
+        <meta charset="UTF-8">                                                      <meta name="viewport" content="width=device-width, initial-scale=1.0">                                                                                  {% load static %}                                                           <link rel="icon" type="image" sizes="512x512"href="{% static 'images/NikayaWhite.png' %}">
+        <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+        <title>Log In</title>
+</head>
+<style>
+
+.info {
+        display: inline-block;
+        border: 4px double white;
+        padding: 20px;
+        text-align: center;
+        color: black;
+}
+
+</style>
+<header style="background-color: black; color: white; padding: 20px;" >
+        <hr>
+        <div style="align-items: center; display: flex;">
+                <a href="/"><img loading="lazy" style="height: 85px; width: auto; display: flex;" src="{% static 'images/NikayaWhite.png' %}" alt="Nikaya Logo"></a><p class="nkfont" style="font-size: 21px;display: inline; margin-left: 10px; margin-right: 10px;">Browse Books</p><p class="nkfont" style="font-size: 21px; display: inline; padding: 5px;margin-left: 10px; margin-right: 10px;">About Nikaya</p><p class="nkfont" style="font-size: 21px; display: inline; padding: 5px;margin-left: 10px; margin-right: 10px;">Contact Us</p>                <div style="margin-left: auto;margin-right: 10px;width: fit-content;">                                                                                  <button style="background-color: white; color: black; cursor: pointer; margin-left: 3px; margin-right: 3px;"><p class="nkfont" style="font-size: 15px; display: inline;">Log In</p></button>                                        <button style="background-color: white; color: black; cursor: pointer; margin-left: 3px; margin-right: 3px;"><a href="/register/" class="nkfont" style="font-size: 15px; display: inline; color: black; text-decoration: none;">Sign Up</a></button>
+                </div>
+                </div>                                                              <hr>
+</header>
+
+<body class="min">
+	<br>
+	<center><div class="info">
+			{% for book in book %}
+			<img style="height: 400px; width: auto;"src="{{ book.cover_photo.url }}" alt="Book Cover">
+			<p style="color: white;" class="nkfont">{{ book.title}}</p>
+			<p style="color: white;" class="nkfont">by {{book.author}}</p>
+			<p style="color: white;" class="nkfont">Quantity: {{book.quantity}}</p>
+		<form action="{% url 'borrow_book' book.book_id %}" method="post">
+			      {% csrf_token %}
+			      <button type="submit">Borrow</button>
+			      <br>
+			      <br>
+		</form>
+	{% endfor %}
+	</div></center>
+	<br>
+</body>
+
+<footer style="background-color: black; color: white; padding: 20px;">
+        <hr>
+        <div class="p-col">
+                <div class="c-col"><center><p>&copy; 2024 Nikaya. All rights reserved.</p></center></div>
+                <div class="c-col"><center><p>Hello</p></center></div>
+                <div class="c-col"><center><p>Hello</p></center></div>
+                <div class="c-col"><center><p>Hello</p></center></div>
+                <div class="c-col"></div>
+                <div class="c-col"><center><p class="nkfont">Follow the Developer!</p></center><div class="c-col"><center><a href="https://www.linkedin.com/in/pranav-anand-47506828b/"><img loading="lazy" class="socials" src="{% static 'images/linkedin.png' %}" alt="Linkedin"></a><a href="https://github.com/pranavanand17"><img loading="lazy" class="socials" src="{% static 'images/github.png' %}" alt="GitHub"></a></div></div>                                     </div>
+        <br>                                                                        <br>                                                                        <hr>                                                                        <center><img loading="lazy" style="height: 300px; width: auto;" src="{% static 'images/NikayaWithTextInverted.jpg' %}" alt="Nikaya Logo"><center>
+</footer>
+
