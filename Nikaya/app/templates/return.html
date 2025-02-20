@@ -18,11 +18,17 @@
 	<br>
 	{% if book %}
 	{% for book in book %}
-		<p>{{ book.book}}</p>
-		 <form action="{% url 'return_book' book.book_id %}" method="post">
+	<center><div class="info">
+	<img style="height: 400px; width: auto;"src="{{ book.book.cover_photo.url }}" alt="Book Cover">
+                        <p style="color: white;" class="nkfont">{{ book.book.title}}</p>
+                        <p style="color: white;" class="nkfont">by {{book.book.author}}</p>
+			<p style="color: white;" class="nkfont">Borrowed on: {{book.borrow_date}}</p>
+		<p style="color: white;" class="nkfont">Return by: {{book.return_date}}</p>
+	<form action="{% url 'return_book' book.book_id %}" method="post">
                               {% csrf_token %}
                               <button type="submit">Return</button>
                 </form>
+		</div></center>
 	{% endfor %}
 	{% else %}
 	<center><div class="info"><img style="height: 200px; width: auto;"src="{% static 'images/elephant.png' %}"><p style="color: white;" class="nkfont">You haven't borrowed any books</p><button style="background-color: white; color: black; cursor: pointer; margin-left: 3px; margin-right: 3px;"><a href="/books/" class="nkfont" style="font-size: 15px; display: inline; color: black; text-decoration: none;">Borrow Now!</a></button></div></center>
