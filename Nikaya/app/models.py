@@ -13,7 +13,7 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.username
-
+#Tokyo Calling
 class Book(models.Model):
     book_id=models.AutoField(primary_key=True)
     title=models.CharField(max_length=255)
