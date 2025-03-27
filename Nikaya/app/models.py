@@ -27,7 +27,7 @@ class Book(models.Model):
 
     def __str__(self):
         return f"{self.title} by {self.author}"
-
+#Tokyo Calling
 class BorrowedBook(models.Model):
     user=models.ForeignKey(CustomUser, on_delete=models.CASCADE,related_name="borrowed_books")
     book=models.ForeignKey(Book, on_delete=models.CASCADE,related_name="borrowers")
