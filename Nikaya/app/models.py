@@ -41,7 +41,7 @@ class BorrowedBook(models.Model):
                 self.borrow_date=timezone.now()
             self.return_date=self.borrow_date+timedelta(days=7)
         super().save(*args,**kwargs)
-
+#This is a comment
     def __str__(self):
         return f"{self.user.username} borrowed {self.book.title}"
 
